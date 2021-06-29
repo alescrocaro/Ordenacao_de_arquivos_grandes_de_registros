@@ -1,0 +1,56 @@
+1.  Modifique a Trie estudada em sala para que cada nó tenha apenas 26 filhos, um para cada letra do alfabeto. Como as palavras da lingua portuguesa
+    tem acentos, é necessário tirá-los para representar todas as palavrasem uma trie de grau 26. Os acentos já estão removidos da lista de palavras
+    fornecida. Durante a inserção “normalize” as palavras para apenas letras maiúsculas ou minúsculas.
+
+
+2.  Implemente uma função TRIE* ConstruirDicionario(char* arq_lista_palavras), que recebe como entrada o caminho para o arquivo com a lista de
+    palavras e devolva uma Trie com todas as palavras. Esta assinatura da função é apenas uma sugestão. Fique a vontade para adicionar mais 
+    parametros caso necessário.
+   
+
+3.  Implemente a função TRIE_ChavesComPrefixo(Trie * T, char* prefix)que retorne a lista de chaves daTrie que possuem a string prefix como prefixo. 
+    A lista de chaves deve ser uma implementação adequada deuma TAD lista, com as operações que julgar necessário.
+
+
+4.  Implemente a função TRIE_ChavesQueCasam(Trie *, char* padrao, int n_extras)que retorne a lista dechaves que casam com o padrão padrao. Considere
+    o caractere “*” como coringa com até n_extras caracteres extras após o coringa. Por exemplo, para 
+    TRIE_ChavesQueCasam (Trie *, char* padrao, int n_extras) com padrao = "ac" e n_extras = 2, sua função deve retornar todos as chaves que casam
+    com o padrão "ac**". A lista de chaves deve ser uma implementação adequada de uma TAD lista, com as operações que julgar necessário.
+
+
+5.  Implemente a função char* TRIE_ChaveMaiorPrefixoDe(Trie* T, char* s), que retorna a chave da trie que casa com o maior prefixo possível de s.
+
+
+6.  Implemente a função void CorrigirOrtografia(Trie* dicionario, char* texto), que analisa a ortografia de cada palavra da string texto e. Caso a
+    palavra não esteja no dicionário, sugira outras palavras de acordo com as regras abaixo. Sugira uma regra também! Você pode criar outras regras
+    também! Entretanto as regras abaixo devem estar implementadas. Use as funções implementadas nos itens 3, 4 e 5 acima de acordo com a necessidade
+    de cada regra. Seja ρ uma palavra ortograficamente incorreta encontrada no texto.
+    
+        • Regra 1: Retorne palavras que casem com ρ substituindo uma letra de cada vez pelo coringa. Por exemplo, se ρ = “ratp”, sugira palavras
+                   que casem com “*atp”, “r*tp”, “ra*p” e “rat*”.
+
+        • Regra 2: Esta regra só deve ser usadas para encontras sugestões para palavras com mais que 5 letras. Sugira as palavras que são os
+                   prefixos de ρ que vão até a posição n-3 e n-2 de ρ, tal que n é o comprimentode ρ. Por exemplo, se ρ= “saladq”, sugira palavras
+                   com os prefixos “salad” e “sala”.
+                
+        • Regra 3: Sugira a palavra que case com o maior prefixo possível de ρ.
+        
+        • Regra 4: Invente sua regra! Ela deve usar uma combinação de pelo menos 2 das três regras acima. Explique seu raciocínio e a razão pela
+                   qual você acha que essa regra encontrará boas sugestões. 
+                   
+    
+7.  Usando as funções implementadas nos itens 2 e 6, escrever o programa principal do corretor ortográfico. Este programa recebe via linha de 
+    comando o nome de um arquivo arquivo contendo o texto a ser analisado. Leve em consideração: 
+
+        • Seu programa principal deve executar sem interação com o usuário, exceto por sua invocação pela linha de comando. As sugestões devem ser
+          impressas para cada palavra que estiver ortograficamente incorreta.
+          
+        • O texto da entrada pode conter pontuação, portanto é necessário descartar a pontuação antes de verificar a ortografia. As palavras da
+          entrada estarão sem acentos.
+          
+        • Para cada palavra incorreta, não sugira palavras repetidas que sejam encontradas por mais que uma regra! Você pode usar uma segunda Trie
+          para evitar as repetições.
+          
+        • As sugestões devem ser impressas na ordem crescente do número de letras na palavra e em ordem alfabética. DICA: A saída dos algoritmos dos 
+          itens 2, 3 e 4 já garantem que as chaves são inseridas na lista em ordem alfabética. Se você usar um algoritmo de ordenação estável, basta
+          ordenar pelo tamanho das palavras!

@@ -1,0 +1,1 @@
+Toda especificação está contida no relatório.
